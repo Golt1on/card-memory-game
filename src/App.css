@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.board-container {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100vw;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  gap: 10px;
+  width: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.game-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: all ease-in-out 0.6s;
+  transform-style: preserve-3d;
+}
+
+.game-card-flipped {
+  transform: rotateX(180deg);
+}
+
+.game-card-front,
+.game-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.game-card-back {
+  transform: rotateX(180deg);
+}
+
+.game-card {
+  height: 20vh;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.game-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.game-card-inactive {
+  visibility: hidden;
+}
+
+.start-game-button {
+  background-color: rgba(59, 59, 59, 0.75);
+  color: aliceblue;
+  padding: 20px 200px;
+  font-size: large;
+  font-weight: bold;
+  box-shadow: 2px 2px 10px 0px rgba(63, 63, 63, 0.75);
+  cursor: pointer;
+  transition: all ease-in-out 0.5s;
+}
+
+.start-game-button:hover {
+  background-color: transparent;
+  color: rgba(59, 59, 59, 0.75);
+}
+
+.finished-game-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(243, 243, 243, 0.849);
+  width: 100vw;
+  height: 100vh;
+}
+
+.finished-game-content{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 10px;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
 }
