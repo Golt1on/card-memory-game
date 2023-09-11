@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const GameCard = ({ card, onClick, isOpened, isInactive, index }) => {
+  useEffect(()=>{
+    console.log(isInactive);
+  },[isInactive])
   return (
     <>
       <div
         onClick={() => {
           onClick(index);
         }}
-        className="game-card" 
+        className={`game-card ${isInactive ? "game-card-inactive" : ""}`} 
       >
         <div className={`game-card-inner ${isOpened | isInactive ? "game-card-flipped" : ""}`}>
           <div className="game-card-front">

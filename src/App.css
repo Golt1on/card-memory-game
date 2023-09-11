@@ -55,8 +55,14 @@
   box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
+@keyframes inactiveCards{
+  from{ visibility: visible; opacity: 100%;}
+  to{visibility: hidden; opacity: 0%;}
+}
+
 .game-card-inactive {
-  visibility: hidden;
+  animation: inactiveCards .3s ease-in-out .5s 1;
+  animation-fill-mode: forwards;
 }
 
 .start-game-button {

@@ -82,10 +82,10 @@ const GameBoard = () => {
               <button
                 className="start-game-button"
                 onClick={() => {
-                  setIsGameStarted(true);
-                  setIsGameFinished(false);
                   setInactiveCards([]);
                   setOpenedCards([]);
+                  setIsGameStarted(true);
+                  setIsGameFinished(false);
                   shuffleCards();
                 }}
               >
@@ -111,10 +111,10 @@ const GameBoard = () => {
                 <button
                   className="start-game-button"
                   onClick={() => {
-                    setIsGameFinished(false);
-                    setIsGameStarted(true);
                     setInactiveCards([]);
                     setOpenedCards([]);
+                    setIsGameFinished(false);
+                    setIsGameStarted(true);
                     shuffleCards();
                   }}
                 >
